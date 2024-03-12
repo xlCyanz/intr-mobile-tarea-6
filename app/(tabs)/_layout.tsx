@@ -1,14 +1,10 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Stack, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
+import { Tabs } from 'expo-router';
 
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
-import { Text, View } from '@/components/Themed';
-import { ImageBackground } from 'expo-image';
-import { styled } from 'nativewind';
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
@@ -33,21 +29,21 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Herramientas',
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
-        }}
-      />
-      {/* <Tabs.Screen
-        name="moments"
-        options={{
-          title: 'Momentos',
-          tabBarIcon: ({ color }) => <TabBarIcon name="star" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="wrench" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="in-life"
+        name="news"
         options={{
-          title: 'En mi vida',
-          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
+          title: 'El nuevo diario',
+          tabBarIcon: ({ color }) => <TabBarIcon name="newspaper-o" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="climate"
+        options={{
+          title: 'Clima en Republica Dominicana',
+          tabBarIcon: ({ color }) => <TabBarIcon name="cloud" color={color} />,
         }}
       />
       <Tabs.Screen
@@ -56,7 +52,7 @@ export default function TabLayout() {
           title: 'Contacto',
           tabBarIcon: ({ color }) => <TabBarIcon name="address-book" color={color} />,
         }}
-      /> */}
+      />
     </Tabs>
   );
 }

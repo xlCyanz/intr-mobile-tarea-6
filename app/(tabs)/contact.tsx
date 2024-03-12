@@ -1,7 +1,7 @@
 import { Image } from 'expo-image';
 import { styled } from 'nativewind';
 
-import { Text, View } from '@/components/Themed';
+import { Text, View } from '@/components/themed';
 
 const StyledImage = styled(Image);
 

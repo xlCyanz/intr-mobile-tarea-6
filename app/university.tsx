@@ -1,10 +1,9 @@
 import React from 'react';
 import { styled } from 'nativewind';
-import { FlatList, Linking, TextInput, TouchableOpacity } from 'react-native';
+import { Alert, FlatList, Linking, TextInput, TouchableOpacity } from 'react-native';
 
-import Button from '@/components/Button';
-import { Text, View, useThemeColor } from '@/components/Themed';
-import { ExternalLink } from '@/components/ExternalLink';
+import Button from '@/components/button';
+import { Text, View } from '@/components/themed';
 
 const StyledTextInput = styled(TextInput);
 const StyledTouchableOpacity = styled(TouchableOpacity);
@@ -45,7 +44,7 @@ const UniversityScreen = () => {
 
     return (
         <View tw="container p-3 flex-1">
-            <Text tw="mb-1" familyType="Medium">Ingresa el nombre de la universidad (en ingles)</Text>
+            <Text tw="mb-1" familyType="Medium">Ingresa el nombre del pais (en ingles)</Text>
             <StyledTextInput
                 value={text}
                 onChangeText={setText}
@@ -63,11 +62,15 @@ const UniversityScreen = () => {
                     initialNumToRender={7}
                     renderItem={({ item }) => {
                         return (
-                            <StyledTouchableOpacity tw="py-2" onPress={() => {
-                                const url = item.domains[0];
-                                return Linking.canOpenURL(url).then(() => {
-                                    Linking.openURL(url);
-                                });
+                            <StyledTouchableOpacity tw="py-2" onPress={async () => {
+                                const url = item.web_pages[0];
+                                const supported = await Linking.canOpenURL(url);
+    
+                                if (supported) {
+                                  await Linking.openURL(url);
+                                } else {
+                                  Alert.alert(`Don't know how to open this URL: ${url}`);
+                                }
                             }}>
                                 <Text tw="text-md" familyType="Medium">{item.name}</Text>
                                 <Text tw="text-md text-blue-500" familyType="Medium">Ir al sitio web</Text>

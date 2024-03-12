@@ -3,8 +3,8 @@ import { Image } from 'expo-image';
 import { styled } from 'nativewind';
 import { TextInput } from 'react-native';
 
-import Button from '@/components/Button';
-import { Text, View, useThemeColor } from '@/components/Themed';
+import Button from '@/components/button';
+import { Text, View } from '@/components/themed';
 
 const StyledImage = styled(Image);
 const StyledTextInput = styled(TextInput);

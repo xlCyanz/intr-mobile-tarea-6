@@ -2,8 +2,8 @@ import React from 'react';
 import { styled } from 'nativewind';
 import { TextInput } from 'react-native';
 
-import Button from '@/components/Button';
-import { Text, View, useThemeColor } from '@/components/Themed';
+import Button from '@/components/button';
+import { Text, View, useThemeColor } from '@/components/themed';
 
 const StyledTextInput = styled(TextInput);
 

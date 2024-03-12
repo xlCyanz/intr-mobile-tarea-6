@@ -1,7 +1,8 @@
 import { router } from 'expo-router';
 
-import { Text, View } from '@/components/Themed';
-import Button from '@/components/Button';
+import { Text, View } from '@/components/themed';
+import Button from '@/components/button';
+import { ScrollView } from 'react-native';
 
 interface ITools {
   title: string;
@@ -31,12 +32,14 @@ export default function ToolsScreen() {
   return (
     <View tw="container p-3 flex-1">
       <Text tw="text-xl mb-6" familyType="Bold">Lista de opciones</Text>
-      {tools.map((tool) => (
-        <View key={tool.title} tw="mb-6">
-          <Button title={tool.title} onPress={tool.onPress} backgroundColor="#129dd4" />
-          <Text tw="text-md" familyType="Regular">{tool.subtitle}</Text>
-        </View>
-      ))}
+      <ScrollView>
+        {tools.map((tool) => (
+          <View key={tool.title} tw="mb-6">
+            <Button title={tool.title} onPress={tool.onPress} />
+            <Text tw="text-md" familyType="Regular">{tool.subtitle}</Text>
+          </View>
+        ))}
+      </ScrollView>
     </View>
   );
 }
