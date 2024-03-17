@@ -41,7 +41,11 @@
     "extra": {
       "router": {
         "origin": false
+      },
+      "eas": {
+        "projectId": "ad6789ae-5b7d-468e-a2bb-43d83538c2c3"
       }
-    }
+    },
+    "owner": "xlcyanz"
   }
 }
